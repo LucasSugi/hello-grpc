@@ -1,0 +1,29 @@
+syntax = "proto3";
+package calculator;
+
+message CalculatorRequest {
+    // First number of calculation
+    uint32 x = 1;
+
+    // Second number of calculation
+    uint32 y = 2;
+}
+
+message CalculatorResponse {
+    uint32 result = 1;
+}
+
+// Calculation of two numbers x and y and returns a result
+service Calculator {
+    // Add of x + y
+    rpc Sum (calculator.CalculatorRequest) returns (calculator.CalculatorResponse);
+
+    // Subtraction of x - y
+    rpc Sub (calculator.CalculatorRequest) returns (calculator.CalculatorResponse);
+
+    // Multiplication of x * y
+    rpc Mult (calculator.CalculatorRequest) returns (calculator.CalculatorResponse);
+
+    // Division of x / y
+    rpc Div (calculator.CalculatorRequest) returns (calculator.CalculatorResponse);
+}
